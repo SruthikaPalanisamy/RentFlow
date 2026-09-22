@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "RB-.YYYY.-.#####",
+ "creation": "2026-09-22 16:29:39.752991",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_zgrr",
+  "amended_from",
+  "customer_name",
+  "customer_phone",
+  "customer_email",
+  "start_date",
+  "end_date",
+  "purpose",
+  "section_break_6pkj",
+  "items",
+  "section_break_rbdm",
+  "deposit_collected",
+  "rental_total",
+  "damage_total",
+  "final_amount",
+  "payment_status",
+  "status",
+  "handled_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_zgrr",
+   "fieldtype": "Section Break",
+   "label": "Customer & Dates"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Booking",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Customer Email"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Booking Item"
+  },
+  {
+   "fieldname": "deposit_collected",
+   "fieldtype": "Currency",
+   "label": "Deposit Collected"
+  },
+  {
+   "fieldname": "rental_total",
+   "fieldtype": "Currency",
+   "label": "Rental Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "damage_total",
+   "fieldtype": "Currency",
+   "label": "Damage Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_amount",
+   "fieldtype": "Currency",
+   "label": "Final Amount",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "\nUnpaid\nPaid"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nConfirmed\nChecked Out\nReturned\nInvoiced\nClosed\nCancelled"
+  },
+  {
+   "fieldname": "section_break_6pkj",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "section_break_rbdm",
+   "fieldtype": "Section Break",
+   "label": "Financials & Status"
+  },
+  {
+   "fieldname": "handled_by",
+   "fieldtype": "Link",
+   "label": "Handled by",
+   "options": "Yard Staff"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-22 16:48:15.281496",
+ "modified_by": "Administrator",
+ "module": "rentflow",
+ "name": "Rental Booking",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
