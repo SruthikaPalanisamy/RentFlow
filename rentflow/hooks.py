@@ -5,6 +5,18 @@ app_description = "Equipment renting app"
 app_email = "sruthi38655@gmail.com"
 app_license = "mit"
 
+fixtures = [
+    "Equipment Category"
+]
+
+after_install = "rentflow.setup.install.after_install"
+
+
+permission_query_conditions = {
+    "Rental Booking": "rentflow.permissions.perm_query",
+}
+
+
 # Apps
 # ------------------
 

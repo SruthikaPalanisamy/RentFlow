@@ -1,0 +1,34 @@
+[
+ {
+  "category_name": "Power Drill",
+  "daily_rate": 500.0,
+  "deposit_amount": 100.0,
+  "description": "A power drill is a motorized hand tool used to bore holes or drive fasteners like screws into materials such as wood, metal, and plastic",
+  "docstatus": 0,
+  "doctype": "Equipment Category",
+  "modified": "2026-09-22 15:36:46.797507",
+  "name": "Power Drill"
+ },
+ {
+  "category_name": "Generator",
+  "daily_rate": 500.0,
+  "deposit_amount": 200.0,
+  "description": "An electric generator is a device that changes mechanical energy into electrical energy",
+  "docstatus": 0,
+  "doctype": "Equipment Category",
+  "modified": "2026-09-22 15:37:28.489805",
+  "name": "Generator"
+ },
+ {
+  "category_name": "Scaffold Tower",
+  "daily_rate": 1500.0,
+  "deposit_amount": 500.0,
+  "description": "A tower scaffold is a portable, freestanding mobile structure with wheels and a working platform designed for safe tasks at elevated heights",
+  "docstatus": 0,
+  "doctype": "Equipment Category",
+  "modified": "2026-09-22 15:38:13.901768",
+  "name": "Scaffold Tower"
+ }
+]
+
+

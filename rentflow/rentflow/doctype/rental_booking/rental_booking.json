@@ -15,6 +15,7 @@
   "start_date",
   "end_date",
   "purpose",
+  "handled_by",
   "section_break_6pkj",
   "items",
   "section_break_rbdm",
@@ -23,8 +24,7 @@
   "damage_total",
   "final_amount",
   "payment_status",
-  "status",
-  "handled_by"
+  "status"
  ],
  "fields": [
   {
@@ -144,7 +144,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-09-22 16:48:15.281496",
+ "modified": "2026-09-22 23:06:00.690375",
  "modified_by": "Administrator",
  "module": "rentflow",
  "name": "Rental Booking",
@@ -160,6 +160,43 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RF Front Desk",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RF Inspector",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RF Manager",
    "share": 1,
    "submit": 1,
    "write": 1
