@@ -12,10 +12,16 @@ fixtures = [
 after_install = "rentflow.setup.install.after_install"
 
 
-permission_query_conditions = {
-    "Rental Booking": "rentflow.permissions.perm_query",
+# permission_query_conditions = {
+#     "Rental Booking": "permissions.perm_query",
+# }
+doc_events = {
+    "*": {
+        "on_update": "rentflow.audit.log_change",
+        "on_submit": "rentflow.audit.log_change",
+        "on_cancel": "rentflow.audit.log_change",
+    }
 }
-
 
 # Apps
 # ------------------

@@ -1,7 +1,7 @@
 # Copyright (c) 2026, Sruthika and contributors
 # For license information, please see license.txt
 
-# import frappe
+
 import frappe
 from frappe import _
 from frappe.model.document import Document
@@ -88,9 +88,6 @@ class RentalBooking(Document):
 			queue="short",
 			booking_name=self.name,
 		)
-			# ignore_permissions=True is acceptable becaus:
-			#  user already passed the submit permission check on this Rental Booking 
-			#  Changing the linked Equipment Unit's status is a  side effect of that already-authorized
 	
 	def send_confirmation_email(booking_name):
 		doc = frappe.get_doc("Rental Booking", booking_name)
