@@ -76,11 +76,11 @@ Because frappe.call is asynchronous so if you call frappe.call inside validate ,
 
 
 ## k2
-# N+1 PROBLEM - fix this
-# bookings = frappe.get_all("Rental Booking", fields=["name","handled_by"])
-# for b in bookings:
-#    staff = frappe.get_doc("Yard Staff", b.handled_by)
-#    print(staff.staff_name, staff.phone)
+N+1 PROBLEM - fix this
+bookings = frappe.get_all("Rental Booking", fields=["name","handled_by"])
+for b in bookings:
+    staff = frappe.get_doc("Yard Staff", b.handled_by)
+    print(staff.staff_name, staff.phone)
 
 bookings = frappe.get_all(
     "Rental Booking",
@@ -146,3 +146,6 @@ let is_allowed = frappe.user_roles.includes('RF Manager');
 frm.toggle_enable(['customer_phone'], is_allowed);
 
 Even with this conditions people can still view the customer_phone using REST api calls so it is advised not to use js for permisions so use permission conditions query
+
+# Video Recording Drive link
+https://drive.google.com/file/d/1W7V1oXz8mHR80Yl8NOIL__PjfODVSe2c/view?usp=sharing
