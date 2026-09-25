@@ -12,9 +12,9 @@ fixtures = [
 after_install = "rentflow.setup.install.after_install"
 
 
-# permission_query_conditions = {
-#     "Rental Booking": "permissions.perm_query",
-# }
+permission_query_conditions = {
+    "Rental Booking": "rentflow.permissions.perm_query",
+}
 doc_events = {
     "*": {
         "on_update": "rentflow.audit.log_change",
@@ -23,6 +23,18 @@ doc_events = {
     }
 }
 
+jinja = {
+    "methods": [
+        "rentflow.rentflow.api.get_shop_name"
+    ]
+}
+
+
+scheduler_events = {
+    "daily": [
+        "rentflow.schedule.flag_overdue_returns"
+    ],
+}
 # Apps
 # ------------------
 

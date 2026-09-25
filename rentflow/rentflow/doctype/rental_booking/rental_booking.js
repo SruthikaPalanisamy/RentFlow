@@ -56,6 +56,12 @@ frappe.ui.form.on("Rental Booking", {
             status,
             color
         );
+    } ,
+
+        refresh(frm) {
+        
+             let is_allowed = frappe.user_roles.includes('RF Manager');
+                frm.toggle_enable(['customer_phone'], is_allowed);
     }
 });
 

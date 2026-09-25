@@ -81,7 +81,7 @@ class RentalBooking(Document):
 	def on_submit(self):
 		self.status = "Reserved"
 		for item in self.items:
-			frappe.db.set_value("Equipment Unit", item.equipment_unit, "current_status", "Reserved" )
+			frappe.db.set_value("Equipment Unit", item.equipment_unit, "current_status", "Reserved" ) # system-generated record tied 1:1 to an already-authorized submit action
 		self.create_invoice()
 		frappe.enqueue(
 			"rentflow.rentflow.doctype.rental_booking.rental_booking.send_confirmation_email",
@@ -107,7 +107,7 @@ class RentalBooking(Document):
 		invoice.damage_amount = self.damage_total
 		invoice.total_amount = self.final_amount
 		invoice.payment_status = "Unpaid"
-		invoice.insert(ignore_permissions=True)
+		invoice.insert(ignore_permissions=True) #This is just invoice creation no need any permissions
 
 	
 	def on_cancel(self):
@@ -121,14 +121,15 @@ class RentalBooking(Document):
 		):
 			inv = frappe.get_doc("Rental Invoice", inv_name)
 			inv.status = "Cancelled"
-			inv.save(ignore_permissions=True)
+			inv.save(ignore_permissions=True) #releasing resources on a cancel the user was already permitted to perform
 
 	
 	def on_trash(self):
 		if self.status not in ("Cancelled", "Draft"):
 			frappe.throw(_("Only Draft or Cancelled bookings can be deleted"))
 
-
+	def before_print(self, print_format=None):
+		self.print_summary = (f"{self.customer_name} - "f"{self.start_date} to {self.end_date}")
 
 # ------------------------------------------------------------------
 # E2 - rename integrity: Rental Invoice is autonamed "INV-{rental_booking}",
@@ -149,19 +150,6 @@ def on_rental_booking_rename(doc, method=None, old_name=None, new_name=None, mer
 		frappe.rename_doc("Rental Invoice", invoice_name, f"INV-{new_name}", force=True)
 
 
-# ------------------------------------------------------------------
-# D2 - row-level filtering via permission_query_conditions.
-#
-# get_list (used by the desk UI, reports, and frappe.get_list in server
-# code) always runs this condition, so an Inspector's list view and any
-# report built on it are automatically scoped. get_all explicitly skips
-# permission checks (including this hook) for performance - it is meant for
-# trusted, internal, already-permission-checked contexts. Calling get_all
-# with user input in the filters, or exposing its result to an under-
-# privileged user, is the classic way this kind of row-level restriction
-# gets silently bypassed - see N1 for the audit of every place this
-# distinction matters in this app.
-# ------------------------------------------------------------------
 def get_permission_query_conditions(user=None):
 	user = user or frappe.session.user
 	roles = frappe.get_roles(user)

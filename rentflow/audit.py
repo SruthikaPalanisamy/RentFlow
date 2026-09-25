@@ -9,7 +9,7 @@ def log_change(doc, method=None):
 	if doc.doctype in IGNORED_DOCTYPES or doc.doctype.startswith("__"):
 		return
 	try:
-		action = (method or "on_update").removeprefix("on_").replace("_", " ").title()
+		action = method 
 		frappe.get_doc(
 			{
 				"doctype": "Audit Log",

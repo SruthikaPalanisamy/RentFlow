@@ -60,14 +60,14 @@
    "fieldname": "user",
    "fieldtype": "Link",
    "label": "User",
-   "options": "user1",
+   "options": "User",
    "set_only_once": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-22 19:00:24.212026",
+ "modified": "2026-09-25 16:57:45.272164",
  "modified_by": "Administrator",
  "module": "rentflow",
  "name": "Yard Staff",
